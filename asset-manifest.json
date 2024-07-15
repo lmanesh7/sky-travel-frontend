@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/sky-travel-frontend/static/css/main.cc16b13b.css",
+    "main.js": "/sky-travel-frontend/static/js/main.5e13759e.js",
+    "static/js/787.927e983a.chunk.js": "/sky-travel-frontend/static/js/787.927e983a.chunk.js",
+    "static/media/flyingPlane.png": "/sky-travel-frontend/static/media/flyingPlane.68a4c23e62a2c5a18e37.png",
+    "static/media/avatar.png": "/sky-travel-frontend/static/media/avatar.0fd67d8535fd8f4c884b.png",
+    "index.html": "/sky-travel-frontend/index.html",
+    "main.cc16b13b.css.map": "/sky-travel-frontend/static/css/main.cc16b13b.css.map",
+    "main.5e13759e.js.map": "/sky-travel-frontend/static/js/main.5e13759e.js.map",
+    "787.927e983a.chunk.js.map": "/sky-travel-frontend/static/js/787.927e983a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cc16b13b.css",
+    "static/js/main.5e13759e.js"
+  ]
+}
