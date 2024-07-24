@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import useGeneral from "../../../../hooks/useGeneral";
+import { BACKEND_BASE_URL } from "../../../../helpers/variables";
 
 const SearchBar = ({ setSchedules }) => {
   const [query, setQuery] = useState({
@@ -14,7 +15,7 @@ const SearchBar = ({ setSchedules }) => {
   useEffect(() => {
     const fetchRoutesData = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/routes"); // Replace with your API endpoint
+        const response = await fetch(`${BACKEND_BASE_URL}/api/routes`); // Replace with your API endpoint
         const data = await response.json();
         console.log(data);
         setRoutes(data);

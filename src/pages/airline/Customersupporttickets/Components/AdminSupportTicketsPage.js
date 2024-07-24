@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Card, CardContent, Typography, List, ListItem } from "@mui/material";
+import { BACKEND_BASE_URL } from "../../../../helpers/variables";
 
 const AdminSupportTicketsPage = () => {
   const [tickets, setTickets] = useState([]);
@@ -9,7 +10,7 @@ const AdminSupportTicketsPage = () => {
     // Fetch the list of support tickets from the backend
     const fetchSupportTickets = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/support-tickets");
+        const response = await fetch(`${BACKEND_BASE_URL}/api/support-tickets`);
         const data = await response.json();
         console.log(data)
         setTickets(data.tickets);

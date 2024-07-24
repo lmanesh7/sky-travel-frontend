@@ -6,6 +6,7 @@ import CSelect from "../../../../components/form/CSelect";
 import CFWButton from "../../../../components/form/CFWButton";
 import useAirline from "../../../../hooks/useAirline";
 import { THEME_COLOR } from "../../../../helpers/colors";
+import { BACKEND_BASE_URL } from "../../../../helpers/variables";
 
 const style = {
   position: "absolute",
@@ -82,7 +83,7 @@ const EditScheduleModal = ({
       setSchedules([...schedules]);
       alert("Schedule updated successfully!");
       console.log(JSON.stringify({ form }))
-      const email_response = await fetch("http://localhost:5000/api/user/sendupdatedemailbulk", {
+      const email_response = await fetch(`${BACKEND_BASE_URL}/api/user/sendupdatedemailbulk`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

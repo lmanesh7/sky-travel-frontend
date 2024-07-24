@@ -3,13 +3,14 @@ import { useEffect, useState } from "react";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
 import { loadStripe } from "@stripe/stripe-js";
+import { BACKEND_BASE_URL } from "../../../helpers/variables";
 
 function Payment() {
   const [stripePromise, setStripePromise] = useState(null);
   const [clientSecret, setClientSecret] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/config",{
+    fetch(`${BACKEND_BASE_URL}/config`,{
       method: "GET",
     }).then(async (r) => {
       const { publishableKey } = await r.json();
@@ -24,7 +25,7 @@ function Payment() {
   
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:5000/create-payment-intent", {
+        const response = await fetch(`${BACKEND_BASE_URL}/create-payment-intent`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

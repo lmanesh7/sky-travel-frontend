@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { CheckCircleOutline } from "@mui/icons-material";
 import { Button, Container, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
+import { BACKEND_BASE_URL } from "../../../helpers/variables";
 
 const BookingSuccessMessage = () => {
   let active = true;
@@ -24,7 +25,7 @@ const BookingSuccessMessage = () => {
 
         const bookingInfo = JSON.parse(bookingInfoString);
         if(active){
-        const response = await fetch("http://localhost:5000/api/savebooking", {
+        const response = await fetch(`${BACKEND_BASE_URL}/api/savebooking`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -38,7 +39,7 @@ const BookingSuccessMessage = () => {
 
         if (response.status === 200) {
           const responseEmail = await fetch(
-            "http://localhost:5000/api/sendemail",
+            `${BACKEND_BASE_URL}/api/sendemail`,
             {
               method: "POST",
               headers: {

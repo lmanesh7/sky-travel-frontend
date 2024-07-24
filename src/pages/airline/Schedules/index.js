@@ -8,6 +8,8 @@ import { calcTimeDiff } from "../../../helpers/funcs";
 import DeleteConfirmation from "../../../components/general/DeleteConfirmation";
 import EditScheduleModal from "./components/EditScheduleModal";
 import axios from 'axios';
+import { BACKEND_BASE_URL } from "../../../helpers/variables";
+
 const Schedules = () => {
   const [addScheduleModalOpen, setAddScheduleModalOpen] = useState(false);
   const [editScheduleModalOpen, setEditScheduleModalOpen] = useState(false);
@@ -55,7 +57,7 @@ const Schedules = () => {
         await Promise.all(
           routesRes.routes.map(async (rt) => {
             // Use axios to get flight name
-            const flightNameResponse = await axios.get(`http://localhost:5000/api/getflightname/${rt._flight?._id}`);
+            const flightNameResponse = await axios.get(`${BACKEND_BASE_URL}/api/getflightname/${rt._flight?._id}`);
             const flightName = flightNameResponse.data;
             console.log(`${rt?.departure?.city} - ${rt?.destination?.city} - ${flightName}`)
             return {

@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Typography, List, ListItem, ListItemText, TextField, Button,Grid } from "@mui/material";
+import { BACKEND_BASE_URL } from "../../../../helpers/variables";
 
 const AdminSupportTicketDetailsPage = () => {
   const { ticketId } = useParams();
@@ -13,7 +14,7 @@ const AdminSupportTicketDetailsPage = () => {
     // Fetch the details of the specific support ticket from the backend
     const fetchSupportTicketDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/support-tickets/${ticketId}`);
+        const response = await fetch(`${BACKEND_BASE_URL}/api/support-tickets/${ticketId}`);
         const data = await response.json();
         
         setTicket([data.ticket]);    
@@ -29,7 +30,7 @@ const AdminSupportTicketDetailsPage = () => {
   const handleReplySubmit = async () => {
     // Submit the reply to the backend
     try {
-      const response = await fetch(`http://localhost:5000/api/support-tickets/${ticketId}/reply`, {
+      const response = await fetch(`${BACKEND_BASE_URL}/api/support-tickets/${ticketId}/reply`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -39,7 +40,7 @@ const AdminSupportTicketDetailsPage = () => {
       const data = await response.json();
       alert("Reply sent successfully")
       try {
-        const response = await fetch(`http://localhost:5000/api/support-tickets/${ticketId}`);
+        const response = await fetch(`${BACKEND_BASE_URL}/api/support-tickets/${ticketId}`);
         const data = await response.json();
         
         setTicket([data.ticket]);    

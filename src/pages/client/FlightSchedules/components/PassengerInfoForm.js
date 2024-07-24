@@ -11,7 +11,7 @@ const history = createBrowserHistory();
 
 export const getUserDetails = async (userId) => {
   try {
-    const response = await fetch(`http://localhost:5000/api/user/details/${userId}`, {
+    const response = await fetch(`${BACKEND_BASE_URL}/api/user/details/${userId}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -159,7 +159,7 @@ const PassengerInfoForm = (props) => {
   
     // Perform the booking after successful payment
     // This is where you can trigger the booking API or save the booking information
-    // const response = await fetch("http://localhost:5000/api/savebooking", {
+    // const response = await fetch(`${BACKEND_BASE_URL}/api/savebooking`, {
     //   method: "POST",
     //   headers: {
     //     "Content-Type": "application/json",
@@ -169,7 +169,7 @@ const PassengerInfoForm = (props) => {
     // });
   
     // if (response.status === 200) {
-    //   const responseEmail = await fetch(`http://localhost:5000/api/sendemail`, {
+    //   const responseEmail = await fetch(`${BACKEND_BASE_URL}/api/sendemail`, {
     //     method: "POST",
     //     headers: {
     //       "Content-Type": "application/json",

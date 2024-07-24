@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import StripeCheckout from "react-stripe-checkout";
 import axios from "axios";
+import { BACKEND_BASE_URL } from "../../../../helpers/variables";
+
 const Payment = ()=>{
 const CURRENCY = "USD";
 const STRIPE_PUBLISHABLE =
     "pk_test_51K73UMBOwmEi06NGKInoBOHQZH6q5QMvgFA5eWxahjTwpCxe6N8A1yUjeffUbxVWPjNNHBsN0Bjj0sodqsIsSu9n00bJez3NKz";
-const PAYMENT_SERVER_URL = "http://localhost:5000/api/payment/";
+const PAYMENT_SERVER_URL = `${BACKEND_BASE_URL}/api/payment/`;
 const onToken = (amount, description) => token =>
     axios.post(PAYMENT_SERVER_URL,
         {

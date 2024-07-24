@@ -1,4 +1,4 @@
-export const BACKEND_BASE_URL = `http://localhost:5000`;
+export const BACKEND_BASE_URL = "https://sky-travel-backend.onrender.com";
 export const AIRLINE_USER = `Airline_User`;
 
 export const airlineNavLinks = [

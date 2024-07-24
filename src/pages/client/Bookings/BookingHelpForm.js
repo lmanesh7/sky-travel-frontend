@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import { BACKEND_BASE_URL } from "../../../helpers/variables";
 
 
 const BookingHelpForm = ({ bookingId, onClose }) => {
@@ -35,7 +36,7 @@ const BookingHelpForm = ({ bookingId, onClose }) => {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/bookings/supportticket/user/saveticket", {
+      const response = await fetch(`${BACKEND_BASE_URL}/api/bookings/supportticket/user/saveticket`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

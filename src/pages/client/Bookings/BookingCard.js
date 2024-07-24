@@ -5,6 +5,8 @@ import { Button, Card, CardContent, Dialog, DialogActions, DialogContent, Dialog
 import axios from 'axios';
 import SuccessMessage from "./SuccessMessage";
 import BookingHelpForm from "./BookingHelpForm";
+import { BACKEND_BASE_URL } from "../../../helpers/variables";
+
 const BookingCard = ({ booking }) => {
   const { booking: bookingInfo, user, route, schedule, flight } = booking;
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -54,7 +56,7 @@ const BookingCard = ({ booking }) => {
   const confirmCancel = () => {
   
     try{
-    const response = axios.post(`http://localhost:5000/api/bookings/cancel/user/${bookingInfo._id}`)
+    const response = axios.post(`${BACKEND_BASE_URL}/api/bookings/cancel/user/${bookingInfo._id}`)
     setIsCancellationSuccess(true);
     
         console.log("Email confirmation sent");

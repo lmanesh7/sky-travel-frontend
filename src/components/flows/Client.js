@@ -2,6 +2,7 @@ import { Menu, MenuItem } from "@mui/material";
 import React from "react";
 import { Outlet, useNavigate } from "react-router";
 import { AIRLINE_USER, BACKEND_BASE_URL } from "../../helpers/variables";
+import { Link } from "react-router-dom";
 
 const Client = () => {
   const navigate = useNavigate();
@@ -35,7 +36,9 @@ const handleProfile = () =>{
   return (
     <div className='auth'>
       <div className='auth__nav'>
-        <img src={require("../../assets/logo.png")} alt='' />
+      <Link to='/flightschedules'>
+          <img src={require("../../assets/logo.png")} alt='' />
+        </Link>
         <div className='auth__nav__links'>
         
           {user?.userType === "user" ? (

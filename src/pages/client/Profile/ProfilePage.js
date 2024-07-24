@@ -9,6 +9,7 @@ import {
   Avatar,
   Typography,
 } from "@mui/material";
+import { BACKEND_BASE_URL } from "../../../helpers/variables";
 
 const ProfilePage = () => {
     const userId = localStorage.getItem("userEmail");
@@ -27,7 +28,7 @@ const ProfilePage = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/user/details/${userId}`);
+        const response = await axios.get(`${BACKEND_BASE_URL}/api/user/details/${userId}`);
         setUser(response.data.user);
         console.log(user)
       } catch (error) {
@@ -59,7 +60,7 @@ const ProfilePage = () => {
         return;
       }
 
-      await axios.put(`http://localhost:5000/api/user/${userId}`, updateFields);
+      await axios.put(`${BACKEND_BASE_URL}/api/user/${userId}`, updateFields);
       setReadOnlyFields(true);
     } catch (error) {
       console.error("Error updating profile:", error);
